@@ -50,7 +50,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-
+    //đường dẫn gốc của ứng dụng
     'url' => env('APP_URL', 'http://localhost'),
 
     /*

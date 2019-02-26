@@ -15,7 +15,7 @@ return [
     |            "sparkpost", "log", "array"
     |
     */
-
+    //smtp là máy chủ dẫn email
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*

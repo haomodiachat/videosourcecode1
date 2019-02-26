@@ -103,7 +103,7 @@ return [
     | such as APC or Memcached. Laravel makes it easy to dig right in.
     |
     */
-
+    //redit lưu dữ liệu trên ram
     'redis' => [
 
         'client' => 'predis',

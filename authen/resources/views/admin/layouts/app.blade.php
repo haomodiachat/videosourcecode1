@@ -56,7 +56,7 @@
                                     <a href="{{ route('admin.auth.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Admin Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('admin.auth.logout') }}" method="POST" style="display: none;">

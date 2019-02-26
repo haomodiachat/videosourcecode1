@@ -31,7 +31,7 @@ class LoginController extends Controller
         ));
         //đăng nhập
         if(Auth::guard('admin') -> attempt(
-            ['email' => $request -> email, 'password' => $request -> password, $request -> remeber ]
+            ['email' => $request -> email, 'password' => $request -> password], $request -> remeber
         )){
             //nếu đăng nhập thành công thì sẽ chuyển hướng về view dashboard của admin
             return redirect() -> intended(route('admin.dashboard'));

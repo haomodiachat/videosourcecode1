@@ -53,6 +53,22 @@ return [
             'driver' => 'token',
             'provider' => 'admins',
         ],
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
+        'seller-api' => [
+            'driver' => 'token',
+            'provider' => 'sellers',
+        ],
+        'shipper' => [
+            'driver' => 'session',
+            'provider' => 'shippers',
+        ],
+        'shipper-api' => [
+            'driver' => 'token',
+            'provider' => 'shippers',
+        ],
     ],
 
     /*
@@ -80,6 +96,14 @@ return [
         'admins' => [
           'driver' => 'eloquent',
            'model' =>  App\Model\AdminModel::class,
+        ],
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' =>  App\Model\SellerModel::class,
+        ],
+        'shippers' => [
+            'driver' => 'eloquent',
+            'model' =>  App\Model\ShipperModel::class,
         ],
 
         // 'users' => [
@@ -109,6 +133,25 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+        'admins' => [
+                'provider' => 'admins',
+                'table' => 'password_resets',
+                'expire' => 15,
+        ],
+
+        'sellers' => [
+            'provider' => 'sellers',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+
+        'shippers' => [
+            'provider' => 'shippers',
+            'table' => 'password_resets',
+            'expire' => 15,
+        ],
+
     ],
 
 ];
