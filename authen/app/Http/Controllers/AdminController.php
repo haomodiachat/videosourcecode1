@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    //hàm khởi tạo của class được chạy nay khi khởi tạo đối tượng
+    //hàm khởi tạo của class được chạy ngay khi khởi tạo đối tượng
     //hàm này nó luôn được chạy trước các hàm khác trong class
     public function __construct()
     {

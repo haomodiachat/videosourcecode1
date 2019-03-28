@@ -33,7 +33,7 @@ class ShipperController extends Controller
             'email' => 'required',
             'password' => 'required'
         ));
-        //khởi tạo model để lưu admin mới
+        //khởi tạo model để lưu shipper mới
         $SellerModel = new ShipperModel();
         $SellerModel -> name = $request -> name;
         $SellerModel -> email = $request -> email;

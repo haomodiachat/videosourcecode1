@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.homepages.index');
 });
 
 Auth::routes();
@@ -23,6 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
  * */
 Route::prefix('admin')->group(function () {
     // gom nhóm các route cho phần admin
+    /*
+     * ****************************************** Route admin authentication************************************
+    */
 
     //URL: authen.com/admin/
     //route mặc định của admin
@@ -54,6 +57,126 @@ Route::prefix('admin')->group(function () {
      * URL: authen.com/admin/logout
      * */
     Route::post('logout', 'Auth\Admin\LoginController@logout') -> name('admin.auth.logout');
+
+    /*
+     * ****************************************** Route admin shopping category************************************
+    */
+
+    Route::get('shop/category','Admin\ShopCategoryController@index');
+    Route::get('shop/category/create','Admin\ShopCategoryController@create');
+    Route::get('shop/category/{id}/edit','Admin\ShopCategoryController@edit');
+    Route::get('shop/category/{id}/delete','Admin\ShopCategoryController@delete');
+
+    Route::post('shop/category', 'Admin\ShopCategoryController@store');
+    Route::post('shop/category/{id}','Admin\ShopCategoryController@update');
+    Route::post('shop/category/{id}/delete','Admin\ShopCategoryController@destroy');
+
+    /*
+    * ****************************************** Route admin shopping  product************************************
+   */
+
+    Route::get('shop/product','Admin\ShopProductController@index');
+    Route::get('shop/product/create','Admin\ShopProductController@create');
+    Route::get('shop/product/{id}/edit','Admin\ShopProductController@edit');
+    Route::get('shop/product/{id}/delete','Admin\ShopProductController@delete');
+
+    Route::post('shop/product', 'Admin\ShopProductController@store');
+    Route::post('shop/product/{id}','Admin\ShopProductController@update');
+    Route::post('shop/product/{id}/delete','Admin\ShopProductController@destroy');
+
+    Route::get('shop/order', function () {
+        return view('admin.content.shop.order.index');
+    });
+    Route::get('shop/review', function () {
+        return view('admin.content.shop.review.index');
+    });
+     Route::get('shop/customer', function () {
+         return view('admin.content.shop.customer.index');
+     });
+     Route::get('shop/brand', function () {
+         return view('admin.content.shop.brand.index');
+     });
+     Route::get('shop/statistic', function () {
+           return view('admin.content.shop.statistic.index');
+       });
+    /*
+    * ****************************************** Route admin nội dung************************************
+    */
+     Route::get('shop/product/order', function () {
+        return view('admin.content.shop.adminorder.index');
+     });
+
+    Route::get('content/category', function () {
+        return view('admin.content.content.category.index');
+    });
+    Route::get('content/post', function () {
+        return view('admin.content.content.post.index');
+    });
+    Route::get('content/page', function () {
+        return view('admin.content.content.page.index');
+    });
+    Route::get('content/tag', function () {
+        return view('admin.content.content.tag.index');
+    });
+    /*
+    * ****************************************** Route admin menu************************************
+    */
+    Route::get('menu', function () {
+        return view('admin.content.menu.index');
+    });
+
+    Route::get('menuitems', function () {
+        return view('admin.content.menuitems.index');
+    });
+    /*
+    * ****************************************** Route admin users************************************
+    */
+    Route::get('users', function () {
+        return view('admin.content.users.index');
+    });
+    /*
+    * ****************************************** Route admin media************************************
+    */
+    Route::get('media', function () {
+        return view('admin.content.media.index');
+    });
+    /*
+   * ****************************************** Route admin config************************************
+   */
+    Route::get('config', function () {
+        return view('admin.content.config.index');
+    });
+    /*
+   * ****************************************** Route admin newletters************************************
+   */
+    Route::get('newletters', function () {
+        return view('admin.content.newletters.index');
+    });
+    /*
+   * ****************************************** Route admin banners************************************
+   */
+    Route::get('banners', function () {
+        return view('admin.content.banners.index');
+    });
+    /*
+    * ****************************************** Route admin contacts************************************
+    */
+    Route::get('contacts', function () {
+        return view('admin.content.contacts.index');
+    });
+    /*
+   * ****************************************** Route admin email************************************
+   */
+    Route::get('email/inbox', function () {
+        return view('admin.content.email.index');
+    });
+    Route::get('email/draft', function () {
+        return view('admin.content.email.draft');
+    });
+    Route::get('email/send', function () {
+        return view('admin.content.email.send');
+    });
+
 });
 /*
  * route cho các nhà cung cấp sản phẩm (seller)
